@@ -1,11 +1,13 @@
 import 'package:foundation_fluttify/foundation_fluttify.dart';
 
+import 'objects.dart';
+
 class CLLocationCoordinate2D extends Ref {
   static Future<CLLocationCoordinate2D> create(
     double latitude,
     double longitude,
   ) async {
-    final int refId = await kMethodChannel.invokeMethod(
+    final int refId = await kCLMethodChannel.invokeMethod(
         'CLLocationCoordinate2D::createCLLocationCoordinate2D',
         {'latitude': latitude, 'longitude': longitude});
     return CLLocationCoordinate2D()
@@ -18,7 +20,7 @@ class CLLocationCoordinate2D extends Ref {
     List<double> latitudeBatch,
     List<double> longitudeBatch,
   ) async {
-    final List resultBatch = await kMethodChannel.invokeMethod(
+    final List resultBatch = await kCLMethodChannel.invokeMethod(
         'CLLocationCoordinate2D::create_batchCLLocationCoordinate2D', {
       'latitude_batch': latitudeBatch,
       'longitude_batch': longitudeBatch,
@@ -32,12 +34,12 @@ class CLLocationCoordinate2D extends Ref {
   }
 
   Future<double> get latitude {
-    return kMethodChannel
+    return kCLMethodChannel
         .invokeMethod('CLLocationCoordinate2D::get_latitude', {'refId': refId});
   }
 
   Future<double> get longitude {
-    return kMethodChannel.invokeMethod(
+    return kCLMethodChannel.invokeMethod(
         'CLLocationCoordinate2D::get_longitude', {'refId': refId});
   }
 }

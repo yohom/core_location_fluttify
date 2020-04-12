@@ -1,13 +1,10 @@
-import 'dart:async';
+library core_location_fluttify;
 
-import 'package:flutter/services.dart';
+export 'package:foundation_fluttify/foundation_fluttify.dart';
 
-class CoreLocationFluttify {
-  static const MethodChannel _channel =
-      const MethodChannel('core_location_fluttify');
-
-  static Future<String> get platformVersion async {
-    final String version = await _channel.invokeMethod('getPlatformVersion');
-    return version;
-  }
-}
+export 'src/cl_authorization_status.dart';
+export 'src/cl_floor.dart';
+export 'src/cl_heading.dart';
+export 'src/cl_location.dart';
+export 'src/cl_location_coordinate_2d.dart';
+export 'src/cl_location_manager.dart';

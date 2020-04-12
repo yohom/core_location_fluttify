@@ -1,19 +1,20 @@
 import 'package:foundation_fluttify/foundation_fluttify.dart';
-import 'package:foundation_fluttify/src/object/obejcts.dart';
+
+import 'objects.dart';
 
 class CLHeading extends Ref {
   Future<double> get magneticHeading {
-    return kMethodChannel
+    return kCLMethodChannel
         .invokeMethod('CLHeading::getMagneticHeading', {'refId': refId});
   }
 
   Future<double> get trueHeading {
-    return kMethodChannel
+    return kCLMethodChannel
         .invokeMethod('CLHeading::getTrueHeading', {'refId': refId});
   }
 
   Future<double> get headingAccuracy {
-    return kMethodChannel
+    return kCLMethodChannel
         .invokeMethod('CLHeading::getHeadingAccuracy', {'refId': refId});
   }
 }
