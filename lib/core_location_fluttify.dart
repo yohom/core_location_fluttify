@@ -1,6 +1,7 @@
 library core_location_fluttify;
 
 export 'package:foundation_fluttify/foundation_fluttify.dart';
+export 'package:latlng/latlng.dart';
 
 export 'src/cl_authorization_status.dart';
 export 'src/cl_floor.dart';
