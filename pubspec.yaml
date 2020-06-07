@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  foundation_fluttify: ^0.8.0
+  foundation_fluttify: ^0.8.2
   latlng: any
 
 dev_dependencies:
