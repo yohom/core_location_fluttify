@@ -12,7 +12,7 @@ extension CLAuthorizationStatusToX on CLAuthorizationStatus {
 }
 
 extension CLAuthorizationStatusFromX on int {
-  CLAuthorizationStatus toAMapGeoFenceActiveAction() {
+  CLAuthorizationStatus toCLAuthorizationStatus() {
     return CLAuthorizationStatus.values[this];
   }
 }
