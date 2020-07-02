@@ -1,3 +1,6 @@
+## 0.2.2
+- enhance: CLAuthorizationStatus增加from和to扩展
+
 ## 0.2.1
 - enhance: 增加LatLng依赖, 统一使用
 
