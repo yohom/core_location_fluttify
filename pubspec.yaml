@@ -19,5 +19,9 @@ dev_dependencies:
 
 flutter:
   plugin:
-    androidPackage: me.yohom.core_location_fluttify
-    pluginClass: CoreLocationFluttifyPlugin
+    platforms:
+      android:
+        package: me.yohom.core_location_fluttify
+        pluginClass: CoreLocationFluttifyPlugin
+      ios:
+        pluginClass: CoreLocationFluttifyPlugin
