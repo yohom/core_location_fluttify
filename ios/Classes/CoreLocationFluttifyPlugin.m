@@ -4,6 +4,7 @@
 #import "CLFloorHandler.h"
 #import "CLLocationManagerHandler.h"
 #import "CLHeadingHandler.h"
+#import "FluttifyMessageCodec.h"
 
 // Container for Dart side random access objects
 extern NSMutableDictionary<NSNumber *, NSObject *> *HEAP;
@@ -19,8 +20,9 @@ extern BOOL enableLog;
     NSString* _channelName = @"com.fluttify/core_location_method";
     
     FlutterMethodChannel *channel = [FlutterMethodChannel
-                                     methodChannelWithName:_channelName
-                                     binaryMessenger:[registrar messenger]];
+        methodChannelWithName:_channelName
+              binaryMessenger:[registrar messenger]
+                        codec:[FlutterStandardMethodCodec codecWithReaderWriter:[[FluttifyReaderWriter alloc] init]]];
     CoreLocationFluttifyPlugin *instance = [[CoreLocationFluttifyPlugin alloc] initWithRegistrar:registrar];
     [registrar addMethodCallDelegate:instance channel:channel];
 }

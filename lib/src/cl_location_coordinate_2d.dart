@@ -34,12 +34,12 @@ class CLLocationCoordinate2D extends Ref {
   }
 
   Future<double> get latitude {
-    return kCLMethodChannel
-        .invokeMethod('CLLocationCoordinate2D::get_latitude', {'refId': refId});
+    return kCLMethodChannel.invokeMethod(
+        'CLLocationCoordinate2D::get_latitude', {'__this__': this});
   }
 
   Future<double> get longitude {
     return kCLMethodChannel.invokeMethod(
-        'CLLocationCoordinate2D::get_longitude', {'refId': refId});
+        'CLLocationCoordinate2D::get_longitude', {'__this__': this});
   }
 }
