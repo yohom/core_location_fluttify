@@ -16,9 +16,7 @@ void CLHeadingHandler(NSString* method, id rawArgs, FlutterResult methodResult){
     if ([@"CLHeading::getMagneticHeading" isEqualToString:method]) {
         NSDictionary<NSString*, id>* args = (NSDictionary<NSString*, id>*) rawArgs;
         
-        NSNumber *refId = (NSNumber *) args[@"refId"];
-        
-        CLHeading *target = (CLHeading *) HEAP[refId];
+        CLHeading *target = (CLHeading *) args[@"__this__"];
         
         CLLocationDirection magneticHeading = [target magneticHeading];
         
@@ -26,9 +24,7 @@ void CLHeadingHandler(NSString* method, id rawArgs, FlutterResult methodResult){
     } if ([@"CLHeading::getTrueHeading" isEqualToString:method]) {
         NSDictionary<NSString*, id>* args = (NSDictionary<NSString*, id>*) rawArgs;
         
-        NSNumber *refId = (NSNumber *) args[@"refId"];
-        
-        CLHeading *target = (CLHeading *) HEAP[refId];
+        CLHeading *target = (CLHeading *) args[@"__this__"];
         
         CLLocationDirection trueHeading = [target trueHeading];
         
@@ -36,9 +32,7 @@ void CLHeadingHandler(NSString* method, id rawArgs, FlutterResult methodResult){
     } if ([@"CLHeading::getHeadingAccuracy" isEqualToString:method]) {
         NSDictionary<NSString*, id>* args = (NSDictionary<NSString*, id>*) rawArgs;
         
-        NSNumber *refId = (NSNumber *) args[@"refId"];
-        
-        CLHeading *target = (CLHeading *) HEAP[refId];
+        CLHeading *target = (CLHeading *) args[@"__this__"];
         
         CLLocationDirection headingAccuracy = [target headingAccuracy];
         

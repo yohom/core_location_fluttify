@@ -14,9 +14,7 @@ void CLLocationManagerHandler(NSString* method, id rawArgs, FlutterResult method
     if ([@"CLLocationManager::requestAlwaysAuthorization" isEqualToString:method]) {
         NSDictionary<NSString*, id>* args = (NSDictionary<NSString*, id>*) rawArgs;
         
-        NSNumber *refId = (NSNumber *) args[@"refId"];
-        
-        CLLocationManager *target = (CLLocationManager *) HEAP[refId];
+        CLLocationManager *target = (CLLocationManager *) args[@"__this__"];
         
         [target requestAlwaysAuthorization];
         
@@ -26,9 +24,7 @@ void CLLocationManagerHandler(NSString* method, id rawArgs, FlutterResult method
     else if ([@"CLLocationManager::requestWhenInUseAuthorization" isEqualToString:method]) {
         NSDictionary<NSString*, id>* args = (NSDictionary<NSString*, id>*) rawArgs;
         
-        NSNumber *refId = (NSNumber *) args[@"refId"];
-        
-        CLLocationManager *target = (CLLocationManager *) HEAP[refId];
+        CLLocationManager *target = (CLLocationManager *) args[@"__this__"];
         
         [target requestWhenInUseAuthorization];
         

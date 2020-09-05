@@ -14,9 +14,7 @@ void CLLocationCoordinate2DHandler(NSString* method, id rawArgs, FlutterResult m
     if ([@"CLLocationCoordinate2D::get_latitude" isEqualToString:method]) {
         NSDictionary<NSString*, id>* args = (NSDictionary<NSString*, id>*) rawArgs;
         
-        NSNumber *refId = (NSNumber *) args[@"refId"];
-        
-        NSValue *dataValue = (NSValue *) HEAP[refId];
+        NSValue *dataValue = (NSValue *) args[@"__this__"];
         
         CLLocationCoordinate2D _structValue;
         [dataValue getValue:&_structValue];
@@ -27,9 +25,7 @@ void CLLocationCoordinate2DHandler(NSString* method, id rawArgs, FlutterResult m
     else if ([@"CLLocationCoordinate2D::get_longitude" isEqualToString:method]) {
         NSDictionary<NSString*, id>* args = (NSDictionary<NSString*, id>*) rawArgs;
         
-        NSNumber *refId = (NSNumber *) args[@"refId"];
-        
-        NSValue *dataValue = (NSValue *) HEAP[refId];
+        NSValue *dataValue = (NSValue *) args[@"__this__"];
         
         CLLocationCoordinate2D _structValue;
         [dataValue getValue:&_structValue];
@@ -46,9 +42,8 @@ void CLLocationCoordinate2DHandler(NSString* method, id rawArgs, FlutterResult m
         CLLocationCoordinate2D data = CLLocationCoordinate2DMake(latitude, longitude);
         
         NSValue *dataValue = [NSValue value:&data withObjCType:@encode(CLLocationCoordinate2D)];
-        HEAP[@(dataValue.hash)] = dataValue;
         
-        methodResult(@(dataValue.hash));
+        methodResult(dataValue);
     }
     // 批量创建CLLocationCoordinate2D
     else if ([@"CLLocationCoordinate2D::create_batchCLLocationCoordinate2D" isEqualToString:method]) {
@@ -57,7 +52,7 @@ void CLLocationCoordinate2DHandler(NSString* method, id rawArgs, FlutterResult m
         NSArray<NSNumber*>* latitudeBatch = (NSArray<NSNumber*>*) args[@"latitude_batch"];
         NSArray<NSNumber*>* longitudeBatch = (NSArray<NSNumber*>*) args[@"longitude_batch"];
         
-        NSMutableArray<NSNumber*>* resultBatch = [NSMutableArray arrayWithCapacity:latitudeBatch.count];
+        NSMutableArray<NSObject*>* resultBatch = [NSMutableArray arrayWithCapacity:latitudeBatch.count];
         for (int i = 0; i < latitudeBatch.count; i++) {
             CLLocationDegrees latitude = [[latitudeBatch objectAtIndex:i] doubleValue];
             CLLocationDegrees longitude = [[longitudeBatch objectAtIndex:i] doubleValue];
@@ -65,8 +60,7 @@ void CLLocationCoordinate2DHandler(NSString* method, id rawArgs, FlutterResult m
             CLLocationCoordinate2D data = CLLocationCoordinate2DMake(latitude, longitude);
 
             NSValue *dataValue = [NSValue value:&data withObjCType:@encode(CLLocationCoordinate2D)];
-            [resultBatch addObject:@(dataValue.hash)];
-            HEAP[@(dataValue.hash)] = dataValue;
+            [resultBatch addObject:dataValue];
         }
         
         methodResult(resultBatch);

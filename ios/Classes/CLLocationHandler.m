@@ -14,9 +14,7 @@ void CLLocationHandler(NSString* method, id rawArgs, FlutterResult methodResult)
     if ([@"CLLocation::get_coordinate" isEqualToString:method]) {
         NSDictionary<NSString*, id>* args = (NSDictionary<NSString*, id>*) rawArgs;
         
-        NSNumber *refId = (NSNumber *) args[@"refId"];
-        
-        CLLocation *location = (CLLocation *) HEAP[refId];
+        CLLocation *location = (CLLocation *) args[@"__this__"];
         
         if (location != nil) {
             CLLocationCoordinate2D data = location.coordinate;
@@ -33,9 +31,7 @@ void CLLocationHandler(NSString* method, id rawArgs, FlutterResult methodResult)
     else if ([@"CLLocation::get_altitude" isEqualToString:method]) {
         NSDictionary<NSString*, id>* args = (NSDictionary<NSString*, id>*) rawArgs;
         
-        NSNumber *refId = (NSNumber *) args[@"refId"];
-        
-        CLLocation *location = (CLLocation *) HEAP[refId];
+        CLLocation *location = (CLLocation *) args[@"__this__"];
         
         if (location != nil) {
             methodResult(@(location.altitude));
@@ -47,9 +43,7 @@ void CLLocationHandler(NSString* method, id rawArgs, FlutterResult methodResult)
     else if ([@"CLLocation::get_horizontalAccuracy" isEqualToString:method]) {
         NSDictionary<NSString*, id>* args = (NSDictionary<NSString*, id>*) rawArgs;
         
-        NSNumber *refId = (NSNumber *) args[@"refId"];
-        
-        CLLocation *location = (CLLocation *) HEAP[refId];
+        CLLocation *location = (CLLocation *) args[@"__this__"];
         
         if (location != nil) {
             methodResult(@(location.horizontalAccuracy));
@@ -61,9 +55,7 @@ void CLLocationHandler(NSString* method, id rawArgs, FlutterResult methodResult)
     else if ([@"CLLocation::get_verticalAccuracy" isEqualToString:method]) {
         NSDictionary<NSString*, id>* args = (NSDictionary<NSString*, id>*) rawArgs;
         
-        NSNumber *refId = (NSNumber *) args[@"refId"];
-        
-        CLLocation *location = (CLLocation *) HEAP[refId];
+        CLLocation *location = (CLLocation *) args[@"__this__"];
         
         if (location != nil) {
             methodResult(@(location.verticalAccuracy));
@@ -75,9 +67,7 @@ void CLLocationHandler(NSString* method, id rawArgs, FlutterResult methodResult)
     else if ([@"CLLocation::get_course" isEqualToString:method]) {
         NSDictionary<NSString*, id>* args = (NSDictionary<NSString*, id>*) rawArgs;
         
-        NSNumber *refId = (NSNumber *) args[@"refId"];
-        
-        CLLocation *location = (CLLocation *) HEAP[refId];
+        CLLocation *location = (CLLocation *) args[@"__this__"];
         
         if (location != nil) {
             methodResult(@(location.course));
@@ -89,9 +79,7 @@ void CLLocationHandler(NSString* method, id rawArgs, FlutterResult methodResult)
     else if ([@"CLLocation::get_speed" isEqualToString:method]) {
         NSDictionary<NSString*, id>* args = (NSDictionary<NSString*, id>*) rawArgs;
         
-        NSNumber *refId = (NSNumber *) args[@"refId"];
-        
-        CLLocation *location = (CLLocation *) HEAP[refId];
+        CLLocation *location = (CLLocation *) args[@"__this__"];
         
         if (location != nil) {
             methodResult(@(location.speed));
@@ -103,9 +91,7 @@ void CLLocationHandler(NSString* method, id rawArgs, FlutterResult methodResult)
     else if ([@"CLLocation::get_floor" isEqualToString:method]) {
         NSDictionary<NSString*, id>* args = (NSDictionary<NSString*, id>*) rawArgs;
         
-        NSNumber *refId = (NSNumber *) args[@"refId"];
-        
-        CLLocation *location = (CLLocation *) HEAP[refId];
+        CLLocation *location = (CLLocation *) args[@"__this__"];
         
         if (location != nil) {
             CLFloor *floor = location.floor;

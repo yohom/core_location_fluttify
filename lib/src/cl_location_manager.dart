@@ -5,11 +5,11 @@ import 'objects.dart';
 class CLLocationManager extends NSObject {
   Future<void> requestAlwaysAuthorization() async {
     await kCLMethodChannel.invokeMethod(
-        'CLLocationManager::requestAlwaysAuthorization', {'refId': refId});
+        'CLLocationManager::requestAlwaysAuthorization', {'__this__': this});
   }
 
   Future<void> requestWhenInUseAuthorization() async {
     await kCLMethodChannel.invokeMethod(
-        'CLLocationManager::requestWhenInUseAuthorization', {'refId': refId});
+        'CLLocationManager::requestWhenInUseAuthorization', {'__this__': this});
   }
 }

@@ -14,9 +14,7 @@ void CLFloorHandler(NSString* method, id rawArgs, FlutterResult methodResult) {
     if ([@"CLFloor::get_level" isEqualToString:method]) {
         NSDictionary<NSString*, id>* args = (NSDictionary<NSString*, id>*) rawArgs;
         
-        NSNumber *refId = (NSNumber *) args[@"refId"];
-        
-        CLFloor *floor = (CLFloor *) HEAP[refId];
+        CLFloor *floor = (CLFloor *) args[@"__this__"];
         
         methodResult(@(floor.level));
     } else {
