@@ -7,7 +7,7 @@ class CLLocationCoordinate2D extends Ref {
     double latitude,
     double longitude,
   ) async {
-    final int refId = await kCLMethodChannel.invokeMethod(
+    final String refId = await kCLMethodChannel.invokeMethod(
         'CLLocationCoordinate2D::createCLLocationCoordinate2D',
         {'latitude': latitude, 'longitude': longitude});
     return CLLocationCoordinate2D()
@@ -26,7 +26,7 @@ class CLLocationCoordinate2D extends Ref {
       'longitude_batch': longitudeBatch,
     });
     return resultBatch
-        .cast<int>()
+        .cast<String>()
         .map((refId) => CLLocationCoordinate2D()
           ..refId = refId
           ..tag__ = 'platform')
