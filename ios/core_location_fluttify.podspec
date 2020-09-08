@@ -17,7 +17,8 @@ A new Flutter project.
   s.public_header_files = 'Classes/**/*.h'
   s.dependency 'Flutter'
   s.platform = :ios, '8.0'
-  
+  s.dependency 'foundation_fluttify'
+
   # 系统framework
   s.frameworks = ["CoreLocation"]
   s.static_framework = true
