@@ -20,9 +20,8 @@ void CLLocationHandler(NSString* method, id rawArgs, FlutterResult methodResult)
             CLLocationCoordinate2D data = location.coordinate;
             
             NSValue *dataValue = [NSValue value:&data withObjCType:@encode(CLLocationCoordinate2D)];
-            HEAP[@(dataValue.hash)] = dataValue;
             
-            methodResult(@(dataValue.hash));
+            methodResult(dataValue);
         } else {
             methodResult(nil);
         }
@@ -95,10 +94,7 @@ void CLLocationHandler(NSString* method, id rawArgs, FlutterResult methodResult)
         
         if (location != nil) {
             CLFloor *floor = location.floor;
-            
-            HEAP[@(floor.hash)] = floor;
-            
-            methodResult(@(floor.hash));
+            methodResult(floor);
         } else {
             methodResult(nil);
         }

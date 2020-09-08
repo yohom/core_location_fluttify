@@ -10,9 +10,7 @@ class CLLocationCoordinate2D extends Ref {
     final String refId = await kCLMethodChannel.invokeMethod(
         'CLLocationCoordinate2D::createCLLocationCoordinate2D',
         {'latitude': latitude, 'longitude': longitude});
-    return CLLocationCoordinate2D()
-      ..refId = refId
-      ..tag__ = 'platform';
+    return CLLocationCoordinate2D()..refId = refId;
   }
 
   // ignore: non_constant_identifier_names
@@ -27,9 +25,7 @@ class CLLocationCoordinate2D extends Ref {
     });
     return resultBatch
         .cast<String>()
-        .map((refId) => CLLocationCoordinate2D()
-          ..refId = refId
-          ..tag__ = 'platform')
+        .map((refId) => CLLocationCoordinate2D()..refId = refId)
         .toList();
   }
 
