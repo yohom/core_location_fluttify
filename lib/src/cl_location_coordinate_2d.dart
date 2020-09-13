@@ -39,3 +39,23 @@ class CLLocationCoordinate2D extends Ref {
         'CLLocationCoordinate2D::get_longitude', {'__this__': this});
   }
 }
+
+extension CLLocationCoordinate2DListX on List<CLLocationCoordinate2D> {
+  Future<List<double>> get latitudeBatch async {
+    return kCLMethodChannel.invokeMethod(
+      'CLLocationCoordinate2D::get_longitude_batch',
+      [
+        for (final __item__ in this) {'__this__': __item__}
+      ],
+    );
+  }
+
+  Future<List<double>> get longitudeBatch async {
+    return kCLMethodChannel.invokeMethod(
+      'CLLocationCoordinate2D::get_longitude_batch',
+      [
+        for (final __item__ in this) {'__this__': __item__}
+      ],
+    );
+  }
+}
