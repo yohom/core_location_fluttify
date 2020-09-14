@@ -42,20 +42,22 @@ class CLLocationCoordinate2D extends Ref {
 
 extension CLLocationCoordinate2DListX on List<CLLocationCoordinate2D> {
   Future<List<double>> get latitudeBatch async {
-    return kCLMethodChannel.invokeMethod(
+    final List<dynamic> result = await kCLMethodChannel.invokeMethod(
       'CLLocationCoordinate2D::get_longitude_batch',
       [
         for (final __item__ in this) {'__this__': __item__}
       ],
     );
+    return result.cast<double>();
   }
 
   Future<List<double>> get longitudeBatch async {
-    return kCLMethodChannel.invokeMethod(
+    final List<dynamic> result = await kCLMethodChannel.invokeMethod(
       'CLLocationCoordinate2D::get_longitude_batch',
       [
         for (final __item__ in this) {'__this__': __item__}
       ],
     );
+    return result.cast<double>();
   }
 }
