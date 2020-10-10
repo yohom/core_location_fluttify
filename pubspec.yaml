@@ -11,7 +11,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  foundation_fluttify: ^0.9.5
+  foundation_fluttify: ^0.10.0
 
 dev_dependencies:
   flutter_test:
