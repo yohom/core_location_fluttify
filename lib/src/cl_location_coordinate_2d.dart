@@ -1,8 +1,12 @@
+// ignore_for_file: non_constant_identifier_names
 import 'package:foundation_fluttify/foundation_fluttify.dart';
 
 import 'objects.dart';
 
 class CLLocationCoordinate2D extends Ref {
+  @override
+  String tag__ = 'core_location_fluttify';
+
   static Future<CLLocationCoordinate2D> create(
     double latitude,
     double longitude,
