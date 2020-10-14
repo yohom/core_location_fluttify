@@ -84,7 +84,7 @@ void CLLocationCoordinate2DHandler(NSString *method, id rawArgs, FlutterResult m
     NSArray<NSNumber *> *longitudeBatch = (NSArray<NSNumber *> *) args[@"longitude_batch"];
 
     NSMutableArray<NSObject *> *resultBatch = [NSMutableArray arrayWithCapacity:latitudeBatch.count];
-    for (int i = 0; i < latitudeBatch.count; i++) {
+    for (NSUInteger i = 0; i < latitudeBatch.count; i++) {
       CLLocationDegrees latitude = [latitudeBatch[i] doubleValue];
       CLLocationDegrees longitude = [longitudeBatch[i] doubleValue];
 
