@@ -14,20 +14,30 @@ void CLLocationCoordinate2DHandler(NSString *method, id rawArgs, FlutterResult m
     NSDictionary<NSString *, id> *args = (NSDictionary<NSString *, id> *) rawArgs;
 
     NSValue *dataValue = (NSValue *) args[@"__this__"];
+    if (dataValue != nil && (NSNull *) dataValue != [NSNull null]) {
+      CLLocationCoordinate2D _structValue;
+      [dataValue getValue:&_structValue];
 
-    CLLocationCoordinate2D _structValue;
-    [dataValue getValue:&_structValue];
-
-    methodResult(@(_structValue.latitude));
+      methodResult(@(_structValue.latitude));
+    } else {
+      methodResult([FlutterError errorWithCode:@"目标对象为null"
+                                       message:@"目标对象为null"
+                                       details:@"目标对象为null"]);
+    }
   } else if ([@"CLLocationCoordinate2D::get_longitude" isEqualToString:method]) {
     NSDictionary<NSString *, id> *args = (NSDictionary<NSString *, id> *) rawArgs;
 
     NSValue *dataValue = (NSValue *) args[@"__this__"];
+    if (dataValue != nil && (NSNull *) dataValue != [NSNull null]) {
+      CLLocationCoordinate2D _structValue;
+      [dataValue getValue:&_structValue];
 
-    CLLocationCoordinate2D _structValue;
-    [dataValue getValue:&_structValue];
-
-    methodResult(@(_structValue.longitude));
+      methodResult(@(_structValue.longitude));
+    } else {
+      methodResult([FlutterError errorWithCode:@"目标对象为null"
+                                       message:@"目标对象为null"
+                                       details:@"目标对象为null"]);
+    }
   } else if ([@"CLLocationCoordinate2D::get_latitude_batch" isEqualToString:method]) {
     NSArray<NSDictionary<NSString *, id> *> *args = (NSArray<NSDictionary<NSString *, id> *> *) rawArgs;
 
@@ -74,7 +84,7 @@ void CLLocationCoordinate2DHandler(NSString *method, id rawArgs, FlutterResult m
     NSArray<NSNumber *> *longitudeBatch = (NSArray<NSNumber *> *) args[@"longitude_batch"];
 
     NSMutableArray<NSObject *> *resultBatch = [NSMutableArray arrayWithCapacity:latitudeBatch.count];
-    for (int i = 0; i < latitudeBatch.count; i++) {
+    for (NSUInteger i = 0; i < latitudeBatch.count; i++) {
       CLLocationDegrees latitude = [latitudeBatch[i] doubleValue];
       CLLocationDegrees longitude = [longitudeBatch[i] doubleValue];
 

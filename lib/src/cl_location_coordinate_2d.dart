@@ -11,10 +11,11 @@ class CLLocationCoordinate2D extends Ref {
     double latitude,
     double longitude,
   ) async {
-    final String refId = await kCLMethodChannel.invokeMethod(
-        'CLLocationCoordinate2D::createCLLocationCoordinate2D',
-        {'latitude': latitude, 'longitude': longitude});
-    return CLLocationCoordinate2D()..refId = refId;
+    final result = await kCLMethodChannel.invokeMethod<Ref>(
+      'CLLocationCoordinate2D::createCLLocationCoordinate2D',
+      {'latitude': latitude, 'longitude': longitude},
+    );
+    return CLLocationCoordinate2D()..refId = result.refId;
   }
 
   // ignore: non_constant_identifier_names
@@ -22,14 +23,15 @@ class CLLocationCoordinate2D extends Ref {
     List<double> latitudeBatch,
     List<double> longitudeBatch,
   ) async {
-    final List resultBatch = await kCLMethodChannel.invokeMethod(
-        'CLLocationCoordinate2D::create_batchCLLocationCoordinate2D', {
-      'latitude_batch': latitudeBatch,
-      'longitude_batch': longitudeBatch,
-    });
+    final resultBatch = await kCLMethodChannel.invokeListMethod<Ref>(
+      'CLLocationCoordinate2D::create_batchCLLocationCoordinate2D',
+      {
+        'latitude_batch': latitudeBatch,
+        'longitude_batch': longitudeBatch,
+      },
+    );
     return resultBatch
-        .cast<String>()
-        .map((refId) => CLLocationCoordinate2D()..refId = refId)
+        .map((it) => CLLocationCoordinate2D()..refId = it.refId)
         .toList();
   }
 
@@ -46,22 +48,22 @@ class CLLocationCoordinate2D extends Ref {
 
 extension CLLocationCoordinate2DListX on List<CLLocationCoordinate2D> {
   Future<List<double>> get latitudeBatch async {
-    final List<dynamic> result = await kCLMethodChannel.invokeMethod(
+    final result = await kCLMethodChannel.invokeListMethod<double>(
       'CLLocationCoordinate2D::get_latitude_batch',
       [
         for (final __item__ in this) {'__this__': __item__}
       ],
     );
-    return result.cast<double>();
+    return result;
   }
 
   Future<List<double>> get longitudeBatch async {
-    final List<dynamic> result = await kCLMethodChannel.invokeMethod(
+    final result = await kCLMethodChannel.invokeListMethod<double>(
       'CLLocationCoordinate2D::get_longitude_batch',
       [
         for (final __item__ in this) {'__this__': __item__}
       ],
     );
-    return result.cast<double>();
+    return result;
   }
 }

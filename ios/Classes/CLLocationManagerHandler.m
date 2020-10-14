@@ -5,31 +5,37 @@
 #import <CoreLocation/CoreLocation.h>
 #import "CLLocationManagerHandler.h"
 
-extern NSMutableDictionary<NSString *, NSObject *> *STACK;
 extern NSMutableDictionary<NSNumber *, NSObject *> *HEAP;
 extern BOOL enableLog;
 
-void CLLocationManagerHandler(NSString* method, id rawArgs, FlutterResult methodResult) {
-    // CLLocationManager::requestAlwaysAuthorization
-    if ([@"CLLocationManager::requestAlwaysAuthorization" isEqualToString:method]) {
-        NSDictionary<NSString*, id>* args = (NSDictionary<NSString*, id>*) rawArgs;
-        
-        CLLocationManager *target = (CLLocationManager *) args[@"__this__"];
-        
-        [target requestAlwaysAuthorization];
-        
-        methodResult(@"success");
-    }
-    // CLLocationManager::requestAlwaysAuthorization
-    else if ([@"CLLocationManager::requestWhenInUseAuthorization" isEqualToString:method]) {
-        NSDictionary<NSString*, id>* args = (NSDictionary<NSString*, id>*) rawArgs;
-        
-        CLLocationManager *target = (CLLocationManager *) args[@"__this__"];
-        
-        [target requestWhenInUseAuthorization];
-        
-        methodResult(@"success");
+void CLLocationManagerHandler(NSString *method, id rawArgs, FlutterResult methodResult) {
+  if ([@"CLLocationManager::requestAlwaysAuthorization" isEqualToString:method]) {
+    NSDictionary<NSString *, id> *args = (NSDictionary<NSString *, id> *) rawArgs;
+
+    CLLocationManager *__this__ = (CLLocationManager *) args[@"__this__"];
+    if (__this__ != nil && (NSNull *) __this__ != [NSNull null]) {
+      [__this__ requestAlwaysAuthorization];
+      methodResult(@"success");
     } else {
-        methodResult(FlutterMethodNotImplemented);
+      methodResult([FlutterError errorWithCode:@"目标对象为null"
+                                       message:@"目标对象为null"
+                                       details:@"目标对象为null"]);
     }
+  }
+  else if ([@"CLLocationManager::requestWhenInUseAuthorization" isEqualToString:method]) {
+    NSDictionary<NSString *, id> *args = (NSDictionary<NSString *, id> *) rawArgs;
+
+    CLLocationManager *__this__ = (CLLocationManager *) args[@"__this__"];
+    if (__this__ != nil && (NSNull *) __this__ != [NSNull null]) {
+      [__this__ requestWhenInUseAuthorization];
+
+      methodResult(@"success");
+    } else {
+      methodResult([FlutterError errorWithCode:@"目标对象为null"
+                                       message:@"目标对象为null"
+                                       details:@"目标对象为null"]);
+    }
+  } else {
+    methodResult(FlutterMethodNotImplemented);
+  }
 }
