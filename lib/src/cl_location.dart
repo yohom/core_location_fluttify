@@ -11,8 +11,8 @@ class CLLocation extends NSObject {
 
   Future<CLLocationCoordinate2D> get coordinate async {
     final result = await kCLMethodChannel
-        .invokeMethod('CLLocation::get_coordinate', {'__this__': this});
-    return CLLocationCoordinate2D()..refId = result;
+        .invokeMethod<Ref>('CLLocation::get_coordinate', {'__this__': this});
+    return CLLocationCoordinate2D()..refId = result.refId;
   }
 
   Future<double> get altitude {
@@ -42,7 +42,7 @@ class CLLocation extends NSObject {
 
   Future<CLFloor> get floor async {
     final result = await kCLMethodChannel
-        .invokeMethod('CLLocation::get_floor', {'__this__': this});
-    return CLFloor()..refId = result;
+        .invokeMethod<Ref>('CLLocation::get_floor', {'__this__': this});
+    return CLFloor()..refId = result.refId;
   }
 }
