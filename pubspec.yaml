@@ -1,11 +1,11 @@
 name: core_location_fluttify
 description: A new Flutter project.
-version: 0.7.0-dev.1
+version: 0.7.0-dev.2
 author: yohom <yohombao@qq.com>
 homepage: https://github.com/fluttify-project/core_location_fluttify
 
 environment:
-  sdk: ">=2.6.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
   flutter: ">=2.0.0"
 
 dependencies:

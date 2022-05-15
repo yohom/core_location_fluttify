@@ -5,9 +5,9 @@ import 'objects.dart';
 
 class CLFloor extends NSObject {
   @override
-  String tag__ = 'core_location_fluttify';
+  final String tag__ = 'core_location_fluttify';
 
-  Future<String> get level {
+  Future<String?> get level {
     return kCLMethodChannel
         .invokeMethod('CLFloor::get_level', {'__this__': this});
   }

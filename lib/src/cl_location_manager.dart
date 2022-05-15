@@ -5,7 +5,7 @@ import 'objects.dart';
 
 class CLLocationManager extends NSObject {
   @override
-  String tag__ = 'core_location_fluttify';
+ final String tag__ = 'core_location_fluttify';
 
   Future<void> requestAlwaysAuthorization() async {
     await kCLMethodChannel.invokeMethod(

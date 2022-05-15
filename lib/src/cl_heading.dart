@@ -5,19 +5,19 @@ import 'objects.dart';
 
 class CLHeading extends Ref {
   @override
-  String tag__ = 'core_location_fluttify';
+  final String tag__ = 'core_location_fluttify';
 
-  Future<double> get magneticHeading {
+  Future<double?> get magneticHeading {
     return kCLMethodChannel
         .invokeMethod('CLHeading::getMagneticHeading', {'__this__': this});
   }
 
-  Future<double> get trueHeading {
+  Future<double?> get trueHeading {
     return kCLMethodChannel
         .invokeMethod('CLHeading::getTrueHeading', {'__this__': this});
   }
 
-  Future<double> get headingAccuracy {
+  Future<double?> get headingAccuracy {
     return kCLMethodChannel
         .invokeMethod('CLHeading::getHeadingAccuracy', {'__this__': this});
   }

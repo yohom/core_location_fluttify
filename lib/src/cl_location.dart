@@ -7,42 +7,42 @@ import 'objects.dart';
 
 class CLLocation extends NSObject {
   @override
-  String tag__ = 'core_location_fluttify';
+  final String tag__ = 'core_location_fluttify';
 
   Future<CLLocationCoordinate2D> get coordinate async {
     final result = await kCLMethodChannel
         .invokeMethod<Ref>('CLLocation::get_coordinate', {'__this__': this});
-    return CLLocationCoordinate2D()..refId = result.refId;
+    return CLLocationCoordinate2D()..refId = result?.refId;
   }
 
-  Future<double> get altitude {
+  Future<double?> get altitude {
     return kCLMethodChannel
         .invokeMethod('CLLocation::get_altitude', {'__this__': this});
   }
 
-  Future<double> get horizontalAccuracy {
+  Future<double?> get horizontalAccuracy {
     return kCLMethodChannel
         .invokeMethod('CLLocation::get_horizontalAccuracy', {'__this__': this});
   }
 
-  Future<double> get verticalAccuracy {
+  Future<double?> get verticalAccuracy {
     return kCLMethodChannel
         .invokeMethod('CLLocation::get_verticalAccuracy', {'__this__': this});
   }
 
-  Future<double> get course {
+  Future<double?> get course {
     return kCLMethodChannel
         .invokeMethod('CLLocation::get_course', {'__this__': this});
   }
 
-  Future<double> get speed {
+  Future<double?> get speed {
     return kCLMethodChannel
         .invokeMethod('CLLocation::get_speed', {'__this__': this});
   }
 
-  Future<CLFloor> get floor async {
+  Future<CLFloor?> get floor async {
     final result = await kCLMethodChannel
         .invokeMethod<Ref>('CLLocation::get_floor', {'__this__': this});
-    return CLFloor()..refId = result.refId;
+    return CLFloor()..refId = result?.refId;
   }
 }
