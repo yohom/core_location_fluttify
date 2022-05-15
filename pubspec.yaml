@@ -6,12 +6,12 @@ homepage: https://github.com/fluttify-project/core_location_fluttify
 
 environment:
   sdk: ">=2.6.0 <3.0.0"
-  flutter: ">=1.12.13 <2.0.0"
+  flutter: ">=2.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  foundation_fluttify: ^0.11.0
+  foundation_fluttify: ^0.13.0-dev.0
 
 dev_dependencies:
   flutter_test:
