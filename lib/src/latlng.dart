@@ -6,7 +6,7 @@ class LatLng {
       : assert(latitude >= -90 && latitude <= 90, '纬度范围为[-90, 90]!'),
         assert(longitude >= -180 && longitude <= 180, '经度范围为[-180, 180]!');
 
-  static LatLng fromJson(Map<String, dynamic> json) {
+  static LatLng? fromJson(Map<String, dynamic>? json) {
     if (json == null || json.isEmpty) return null;
     return LatLng(json['latitude'], json['longitude']);
   }
