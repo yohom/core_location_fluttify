@@ -8,4 +8,5 @@ export 'src/cl_heading.dart';
 export 'src/cl_location.dart';
 export 'src/cl_location_coordinate_2d.dart';
 export 'src/cl_location_manager.dart';
+export 'src/functions.dart';
 export 'src/latlng.dart';
