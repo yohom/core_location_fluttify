@@ -5,11 +5,11 @@ import 'cl_location.dart';
 import 'cl_location_coordinate_2d.dart';
 import 'cl_location_manager.dart';
 
-T? coreLocationFluttifyAndroidAs<T>(dynamic __this__) {
+T? CoreLocationFluttifyAndroidAs<T>(dynamic __this__) {
   return null;
 }
 
-T? coreLocationFluttifyIOSAs<T>(dynamic __this__) {
+T? CoreLocationFluttifyIOSAs<T>(dynamic __this__) {
   if (T == CLLocation) {
     return (CLLocation()..refId = (__this__ as Ref).refId) as T;
   } else if (T == CLHeading) {
